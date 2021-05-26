@@ -31,7 +31,11 @@ cd ../../
 . build/envsetup.sh
 export HAVOC_MAINTAINER=P_Salik16
 lunch havoc_RMX1941-userdebug
-brunch RMX1941
+brunch RMX1941 \
+	&& repo forall -c 'git checkout .' || repo forall -c 'git checkout .'
 
 # upload build
+# If you need to upload json/multiple files too then put like this
+#rclone copy out/target/product/RMX1941/*.zip cirrus:mido -P
+#rclone copy out/target/product/RMX1941/*.zip.json cirrus:mido -P'
 rclone copy out/target/product/RMX1941/*Unofficial*.zip cirrus:RMX1941 -P
