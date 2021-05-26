@@ -12,7 +12,7 @@ curl -LO https://github.com/PixelExperience/external_selinux/commit/9d6ebe89430f
 patch -p1 < *.patch
 cd ../..
 
-cd media/libstagefright
+cd frameworks/av
 curl -LO https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch
 patch -p1 < *.patch
 cd ../../
