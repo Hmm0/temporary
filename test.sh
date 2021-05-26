@@ -22,4 +22,4 @@ then
 	exit 1
 fi
 
-echo "Test passed"
+echo Test passed
