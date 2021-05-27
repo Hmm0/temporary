@@ -4,7 +4,7 @@ ggit clone https://github.com/cArN4gEisDeD/local_manifest --depth=1 -b main .rep
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
 # build rom
-. build/env*
+source build/envsetup.sh
 export WITH_GAPPS=true
 lunch spark_RMX1941-userdebug
 mka spark
