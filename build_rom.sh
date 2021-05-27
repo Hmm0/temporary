@@ -5,6 +5,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 # build rom
 . build/env*
+export WITH_GAPPS=true
 lunch spark_RMX1941-userdebug
 mka spark
 
