@@ -1,12 +1,14 @@
-# sync rom
-repo init --depth=1 --no-repo-verify -u git://github.com/DerpFest-11/manifest.git -b 11 -g default,-device,-mips,-darwin,-notdefault
-git clone https://github.com/pocox3pro/Local-Manifests.git --depth 1 -b master .repo/local_manifests
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+repo init --depth=1 -u https://github.com/Wave-Project/manifest -b r -g default,-device,-mips,-darwin,-notdefault
 
-# build rom
-source build/envsetup.sh
-lunch derp_vayu-user
-mka derp
+git clone https://github.com/yashlearnpython/local_manifest.git --depth=1 -b wave-os .repo/local_manifests
 
-# upload rom
-rclone copy out/target/product/vayu/DerpFest*.zip cirrus:vayu -P
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+
+# Build ROM
+. build/envsetup.sh
+lunch wave_mido-user
+mka bacon -j$(nproc --all)
+
+# Upload build
+rclone copy out/target/product/mido/*.zip cirrus:mido -P
+#29
