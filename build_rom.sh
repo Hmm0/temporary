@@ -6,8 +6,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 # Build ROM
 . build/envsetup.sh
-export SELINUX_IGNORE_NEVERALLOWS=true
-lunch wave_mido-user
+lunch wave_mido-userdebug
 export SELINUX_IGNORE_NEVERALLOWS=true
 mka bacon -j$(nproc --all)
 
