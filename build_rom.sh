@@ -1,7 +1,7 @@
 # sync rom
 repo init -u https://github.com/ZenX-OS/android_manifest.git -b 11.1 --depth=1 --no-repo-verify -g default,-device,-mips,-darwin,-notdefault
 git clone https://github.com/cArN4gEisDeD/local_manifest --depth=1 -b main .repo/local_manifests
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync --no-repo-verify -j8
 
 # build rom
 source build/envsetup.sh
